@@ -10,7 +10,7 @@ include <carcassonne_box.scad>
 mm = 1;
 tiles = 2*mm;
 
-sections = [12*tiles];
+sections = [1*tiles];
 columns = 1; 
 icon="0-spring.dxf";
 

@@ -39,7 +39,7 @@ module carcassonne_lid(sections, columns=1, icon=false, icon2=false, icon3=false
         [   w, l-d, h+g ],  //6
         [   d, l-d, h+g ]   //7
     ];
-    
+
     CubeFaces = [
         [0,1,2,3],  // bottom
         [4,5,1,0],  // front
@@ -48,7 +48,7 @@ module carcassonne_lid(sections, columns=1, icon=false, icon2=false, icon3=false
         [6,7,3,2],  // back
         [7,4,0,3]   // left
     ];
-    
+
     difference(){
         union(){
             polyhedron( CubePoints, CubeFaces );
@@ -87,11 +87,11 @@ module carcassonne_box(sections, columns=1){
     raw_length = sum(sections);
     extra_space = ((width/2) - (raw_length % (width/2))) % (width/2);
     length = raw_length + extra_space;
-    
+
     section_count = len(sections);
-    adjusted_sections = [for (i = [0:section_count-1]) 
+    adjusted_sections = [for (i = [0:section_count-1])
         sections[i] + (extra_space / section_count)];
-    
+
     difference(){
         union(){
             difference(){
@@ -104,14 +104,14 @@ module carcassonne_box(sections, columns=1){
             }
             // Dividers
             for(col = [0:columns-1]){
-                divider_positions = [for(i=0; i<len(adjusted_sections)-1; i=i+1) 
+                divider_positions = [for(i=0; i<len(adjusted_sections)-1; i=i+1)
                     sum([for(j=[0:i]) adjusted_sections[j]])];
                 for(pos = divider_positions){
-                    translate([pos+wall, width*col+wall, 0]) 
+                    translate([pos+wall, width*col+wall, 0])
                         cube([wall/2, width, width-(2*wall)]);
                 }
                 if(col > 0){
-                    translate([0, width*col+(wall/2), 0]) 
+                    translate([0, width*col+(wall/2), 0])
                         cube([length+(2*wall)-18.0, wall/2, width-(2*wall)]);
                 }
             }
@@ -127,8 +127,8 @@ module carcassonne_box(sections, columns=1){
                 }
             }
             // Track
-            translate([wall/2,wall/2,width+wall/2]) 
-                carcassonne_lid(adjusted_sections, columns, g=0.4);
+            translate([wall/2, wall/2, width+wall]) // Adjusted z-position
+                carcassonne_lid(sections, columns, g=0.4);
         }
     }
 }
