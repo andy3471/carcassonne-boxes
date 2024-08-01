@@ -12,4 +12,4 @@ columns = 1;
 icon="0-spring.svg";
 
 carcassonne_box(sections, columns);
-translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=.25, xoff=-2.5, yoff=-1); 
+translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=.8, xoff=12, yoff=-1.5); 

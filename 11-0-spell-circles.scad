@@ -12,4 +12,4 @@ columns = 1;
 icon="11-0-spell-circles.svg";
 
 carcassonne_box(sections, columns);
-translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=.25, xoff=-3, yoff=-2); 
+translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=.8, xoff=12, yoff=-3); 

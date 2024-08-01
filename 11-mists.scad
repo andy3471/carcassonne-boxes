@@ -12,4 +12,4 @@ columns = 1;
 icon="11-mists.svg";
 
 carcassonne_box(sections, columns);
-translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=.3, xoff=0, yoff=-4);
+translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=.9, xoff=10, yoff=-4);
