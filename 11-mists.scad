@@ -6,11 +6,8 @@
  */
 
 include <carcassonne_box.scad>
-
-mm = 1;
-tiles = 2*mm;
-
-sections = [60*tiles, 20*mm, 10*mm];
+ 
+sections = [(60*tiles + clearance), 30*mm, 10*mm];
 columns = 1; 
 icon="11-mists.dxf";
 

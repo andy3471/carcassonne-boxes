@@ -8,10 +8,7 @@
 // TODO: This one has two columns
 include <carcassonne_box.scad>
 
-mm = 1;
-tiles = 2*mm;
-
-sections = [4*tiles, 3*mm, 5*mm];
+sections = [(4 * tiles) + clearance];
 columns = 2;
 icon="0-leipzig.dxf";
 

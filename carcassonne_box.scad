@@ -8,6 +8,9 @@
 mm = 1;
 cm = 10*mm;
 
+tiles = 2*mm;
+clearance = 3*mm;
+
 width = 47*mm;
 thick = 2.5*mm;
 wall = 2*mm;
@@ -23,7 +26,8 @@ wall = 2*mm;
  * @param yoff Y-offset of icon from center.
  */
 module carcassonne_lid(sections, columns=1, icon=false, icon2=false, icon3=false, rot=0, mult=1, xoff=0, yoff=0, mult2=1, xoff2=0, yoff2=0, mult3=1, xoff3=0, yoff3=0, g=0){
-    length = sum(sections) + ((width/2) - (sum(sections) % (width/2)));
+    divider_thickness = wall/2;
+    length = sum(sections) + (divider_thickness * (len(sections) - 1));
     w = length+(1.5*wall)+.1;
     l = (width*columns)+wall;
     h = wall;
@@ -84,13 +88,11 @@ module carcassonne_lid(sections, columns=1, icon=false, icon2=false, icon3=false
  * @param columns Number of columns.
  */
 module carcassonne_box(sections, columns=1){
-    raw_length = sum(sections);
-    extra_space = ((width/2) - (raw_length % (width/2))) % (width/2);
-    length = raw_length + extra_space;
+    divider_thickness = wall/2;
+    raw_length = sum(sections) + (divider_thickness * (len(sections) - 1));
+    length = raw_length;
 
     section_count = len(sections);
-    adjusted_sections = [for (i = [0:section_count-1])
-        sections[i] + (extra_space / section_count)];
 
     difference(){
         union(){
@@ -104,14 +106,14 @@ module carcassonne_box(sections, columns=1){
             }
             // Dividers
             for(col = [0:columns-1]){
-                divider_positions = [for(i=0; i<len(adjusted_sections)-1; i=i+1)
-                    sum([for(j=[0:i]) adjusted_sections[j]])];
+                divider_positions = [for(i=0; i<len(sections)-1; i=i+1) 
+                    sum([for(j=[0:i]) sections[j]]) + (i * divider_thickness)];
                 for(pos = divider_positions){
-                    translate([pos+wall, width*col+wall, 0])
-                        cube([wall/2, width, width-(2*wall)]);
+                    translate([pos+wall, width*col+wall, 0]) 
+                        cube([divider_thickness, width, width-(2*wall)]);
                 }
                 if(col > 0){
-                    translate([0, width*col+(wall/2), 0])
+                    translate([0, width*col+(wall/2), 0]) 
                         cube([length+(2*wall)-18.0, wall/2, width-(2*wall)]);
                 }
             }
@@ -127,11 +129,12 @@ module carcassonne_box(sections, columns=1){
                 }
             }
             // Track
-            translate([wall/2, wall/2, width+wall]) // Adjusted z-position
+            translate([wall/2, wall/2, width+wall])
                 carcassonne_lid(sections, columns, g=0.4);
         }
     }
 }
+
 
 // Helper function to sum an array
 function sum(v, i = 0, r = 0) = i < len(v) ? sum(v, i + 1, r + v[i]) : r;

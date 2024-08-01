@@ -7,10 +7,7 @@
 
 include <carcassonne_box.scad>
 
-mm = 1;
-tiles = 2*mm;
-
-sections = [12*tiles];
+sections = [(12 * tiles + clearance)];
 columns = 1; 
 icon="0-peasants.dxf";
 
