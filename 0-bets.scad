@@ -7,12 +7,12 @@
 
 include <carcassonne_box.scad>
 
-count = 4;
-dividers = [[]];
-columns = 1;
-add = 4.5;
-div1 = 0;
-div2 = 0;
+mm = 1;
+tiles = 2*mm;
 
-carcassonne_box(count, dividers, columns, add, div1, div2);
-translate([0,width*columns+10,0]) carcassonne_lid(count, columns, icon="0-spring.dxf", rot=90, mult=2.2, xoff=21, yoff=-9);
+sections = [10*tiles, 5*mm];
+columns = 1;
+icon="0-bets.dxf";
+
+carcassonne_box(sections, columns);
+translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=2.2, xoff=21, yoff=-9); 
