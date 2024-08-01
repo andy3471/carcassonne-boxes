@@ -9,7 +9,7 @@ include <carcassonne_box.scad>
 
 sections = [(10*tiles) + clearance, 10*mm];
 columns = 1;
-icon="0-bets.dxf";
+icon="0-bets.svg";
 
 carcassonne_box(sections, columns);
-translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=2.2, xoff=21, yoff=-9); 
+translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=.25, xoff=-2, yoff=-2);

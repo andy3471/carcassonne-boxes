@@ -10,7 +10,7 @@ include <carcassonne_box.scad>
 
 sections = [(4 * tiles) + clearance];
 columns = 2;
-icon="0-leipzig.dxf";
+icon="0-leipzig.svg";
 
 carcassonne_box(sections, columns);
-translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=2.2, xoff=21, yoff=-9); 
+translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=.1, xoff=-1, yoff=12); 
