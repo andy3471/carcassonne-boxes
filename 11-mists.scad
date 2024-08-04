@@ -7,7 +7,7 @@
 
 include <carcassonne_box.scad>
  
-sections = [(60*tiles + clearance), 90*mm, 30*mm, 20*mm];
+sections = [5*mm, 20*mm, 30*mm, (60*tiles + clearance)];
 columns = 1;
 icon="11-mists.svg";
 

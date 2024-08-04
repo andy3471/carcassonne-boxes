@@ -7,9 +7,9 @@
 
 include <carcassonne_box.scad>
 
-sections = [15*mm, (9*tiles + clearance),];
+sections = [15*mm];
 columns = 1; 
-icon="11-0-spell-circles.svg";
+icon="11-guard-meeple.svg";
 
 carcassonne_box(sections, columns);
-translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=.8, xoff=12, yoff=-3); 
+translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=1, xoff=0, yoff=-3); 
