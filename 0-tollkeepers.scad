@@ -8,7 +8,7 @@
 include <carcassonne_box.scad>
 
 sections = [(10 * tiles + clearance), 10*mm];
-columns = 1; 
+columns = 1;
 icon="0-tollkeepers.svg";
 
 carcassonne_box(sections, columns);

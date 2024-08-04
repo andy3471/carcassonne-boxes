@@ -129,7 +129,7 @@ module carcassonne_box(sections, columns=1){
                 }
             }
             // Track
-            translate([wall/2, wall/2, width+wall])
+            translate([wall/2, wall/2, width+wall-1])
                 carcassonne_lid(sections, columns, g=0.4);
         }
     }

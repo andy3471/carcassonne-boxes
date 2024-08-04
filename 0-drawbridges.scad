@@ -10,4 +10,4 @@ columns = 1;
 icon = "0-drawbridges.svg";
 
 carcassonne_box(sections, columns);
-translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=.90, xoff=12, yoff=-4);
+translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=.80, xoff=11.5, yoff=-3);
