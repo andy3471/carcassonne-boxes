@@ -12,4 +12,4 @@ columns = 2;
 icon="0-leipzig.svg";
 
 carcassonne_box(sections, columns);
-translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=.35, xoff=5, yoff=13); 
+translate([0,width*columns+10,0]) carcassonne_lid(sections, columns, icon, rot=90, mult=.35, xoff=5, yoff=10); 
